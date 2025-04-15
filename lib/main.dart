@@ -21,20 +21,20 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/login',
       routes: {
-        '/': (context) => App(), // Layout principal
-        '/login': (context) => Login(), // login
-        '/Admin/indexA': (context) => IndexA(), // Dashboard administrador
-        '/Doctor/indexD': (context) => IndexD(), // Dashboard doctor
-        '/Paciente/indexP': (context) => IndexP(), // Dashboard paciente
-        '/Reports/paciente': (context) => PacienteReport(), // Reportes PDF
+        '/login': (context) => Login(),
+        '/Admin/indexA': (context) => App(child: IndexA()),
+        '/Doctor/indexD': (context) => App(child: IndexD()),
+        '/Paciente/indexP': (context) => App(child: IndexP()),
+        '/Reports/paciente': (context) => App(child: PacienteReport()),
       },
       onGenerateRoute: (settings) {
         // Manejo de rutas no definidas
         return MaterialPageRoute(
-          builder: (context) => Scaffold(
-            appBar: AppBar(title: Text('Error')),
-            body: Center(child: Text('Ruta no encontrada')),
-          ),
+          builder:
+              (context) => Scaffold(
+                appBar: AppBar(title: Text('Error')),
+                body: Center(child: Text('Ruta no encontrada')),
+              ),
         );
       },
       debugShowCheckedModeBanner: false,
