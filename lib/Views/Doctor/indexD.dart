@@ -10,12 +10,16 @@ class IndexD extends StatefulWidget {
 
 class _IndexDState extends State<IndexD> {
   bool _mostrarCitas = false;
+  bool _mostrarPacientes = false; // ✅ Agregado
   final List<Map<String, String>> _citas = [];
-  
+  final List<Map<String, String>> _pacientes = [
+    {'nombre': 'Juan Pérez', 'edad': '30', 'especialidad': 'Cardiología'},
+    {'nombre': 'María López', 'edad': '25', 'especialidad': 'Pediatría'},
+    {'nombre': 'Carlos García', 'edad': '40', 'especialidad': 'Dermatología'},
+  ];
 
   @override
   Widget build(BuildContext context) {
-    // Asegúrate de que el scaffold tiene todos los elementos necesarios
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
@@ -29,16 +33,11 @@ class _IndexDState extends State<IndexD> {
             color: Colors.blue[600],
           ),
         ),
-        actions: [
-          // Botones de acción
-        ],
+        actions: [],
       ),
-      // Verificar que el body tiene contenido
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.only(
-            bottom: 80,
-          ), // deja espacio para el footer
+          padding: const EdgeInsets.only(bottom: 80),
           child: Column(
             children: [
               // Panel de bienvenida
@@ -102,16 +101,28 @@ class _IndexDState extends State<IndexD> {
                                     backgroundColor: Colors.blue[600],
                                     foregroundColor: Colors.white,
                                   ),
-                                  child: const Text('Ver Citas'),
+                                  child: Text(
+                                    _mostrarCitas
+                                        ? 'Ocultar Citas'
+                                        : 'Ver Citas',
+                                  ),
                                 ),
                                 const SizedBox(width: 16),
                                 ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    setState(() {
+                                      _mostrarPacientes = !_mostrarPacientes;
+                                    });
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.green[600],
                                     foregroundColor: Colors.white,
                                   ),
-                                  child: const Text('Ver Pacientes'),
+                                  child: Text(
+                                    _mostrarPacientes
+                                        ? 'Ocultar Pacientes'
+                                        : 'Ver Pacientes',
+                                  ),
                                 ),
                               ],
                             ),
@@ -163,6 +174,67 @@ class _IndexDState extends State<IndexD> {
                           ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+
+              // ✅ Panel de pacientes
+              if (_mostrarPacientes)
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Tus Pacientes',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      ..._pacientes.map((paciente) {
+                        return Container(
+                          width: double.infinity,
+                          margin: const EdgeInsets.symmetric(vertical: 8),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                blurRadius: 6,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  paciente['nombre'] ?? '',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  "Edad: ${paciente['edad']} años",
+                                  style: const TextStyle(color: Colors.black54),
+                                ),
+                                Text(
+                                  "Especialidad: ${paciente['especialidad']}",
+                                  style: const TextStyle(color: Colors.black54),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }).toList(),
                     ],
                   ),
                 ),
