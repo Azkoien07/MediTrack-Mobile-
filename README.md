@@ -1,6 +1,3 @@
-from pathlib import Path
-
-readme_content = """
 # 📱 MediTrack Mobile - App de Gestión Médica
 
 MediTrack Mobile es la aplicación móvil oficial de MediTrack, diseñada para llevar la gestión de citas, pacientes y profesionales de la salud directamente al bolsillo de doctores y pacientes. Desarrollada en Flutter, ofrece una experiencia rápida, intuitiva y multiplataforma (Android/iOS).
