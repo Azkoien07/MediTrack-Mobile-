@@ -23,17 +23,20 @@ class _IndexDState extends State<IndexD> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2,
-        title: Text(
-          'Doctor',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue[600],
+        automaticallyImplyLeading: false,
+        title: const Text("MediTrack - Panel Doctor"),
+        backgroundColor: Colors.blue.shade700,
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/login'); // Redirige al login
+            },
+            child: const Text(
+              "Cerrar Sesión",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
-        ),
-        actions: [],
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
