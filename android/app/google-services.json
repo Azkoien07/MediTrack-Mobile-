@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "684361007361",
+    "project_id": "medi-track-mobile-93698",
+    "storage_bucket": "medi-track-mobile-93698.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684361007361:android:bf3f15b0d695660ff5db00",
+        "android_client_info": {
+          "package_name": "com.example.medi_track_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArnOT-_EzukxonngzWPYeERU35UFYAiFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
