@@ -15,9 +15,9 @@ class _IndexDState extends State<IndexD> {
   bool _mostrarPacientes = false; // ✅ Agregado
   final List<Map<String, String>> _citas = [];
   final List<Map<String, String>> _pacientes = [
-    {'nombre': 'Juan Pérez', 'edad': '30', 'especialidad': 'Cardiología'},
-    {'nombre': 'María López', 'edad': '25', 'especialidad': 'Pediatría'},
-    {'nombre': 'Carlos García', 'edad': '40', 'especialidad': 'Dermatología'},
+    {'nombre': 'Juan Pérez', 'edad': '30', 'Consulta': 'Dermatología'},
+    {'nombre': 'María López', 'edad': '25', 'Consulta': 'Pediatría'},
+    {'nombre': 'Carlos García', 'edad': '40', 'Consulta': 'Oftalmología'},
   ];
 
   @override

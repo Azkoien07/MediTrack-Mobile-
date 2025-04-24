@@ -220,7 +220,7 @@ class IndexA extends StatelessWidget {
                               Navigator.pushNamed(
                                 context,
                                 '/editar-paciente',
-                                arguments: {'id': 1}, // Cambiado a Map con clave 'id'
+                                arguments: {'id': 1}, 
                               );
                             },
                             child: const Text('Editar'),

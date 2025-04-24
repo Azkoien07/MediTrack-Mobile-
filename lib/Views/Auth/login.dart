@@ -234,18 +234,6 @@ class _LoginState extends State<Login> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
-                      // Añadir información de credenciales de prueba
-                      Divider(),
-                      SizedBox(height: 10),
-                      Text(
-                        'Credenciales de prueba:',
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 5),
-                      Text('Admin: admin@meditrack.com / admin123'),
-                      Text('Doctor: doctor@meditrack.com / doctor123'),
-                      Text('Paciente: paciente@meditrack.com / paciente123'),
                     ],
                   ),
                 ),
