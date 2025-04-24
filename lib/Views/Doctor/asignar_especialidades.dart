@@ -84,7 +84,6 @@ class _AsignarEspecialidadesState extends State<AsignarEspecialidades> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // Lógica para guardar la especialidad seleccionada
                             print('Especialidad $especialidadSeleccionada asignada al doctor con ID ${widget.doctorId}');
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Especialidad "$especialidadSeleccionada" asignada correctamente')),

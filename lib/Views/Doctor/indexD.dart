@@ -1,4 +1,6 @@
 // Views/Doctor/indexD.dart - Implementación corregida
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 
 class IndexD extends StatefulWidget {
